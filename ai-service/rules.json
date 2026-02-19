@@ -1,0 +1,12 @@
+{
+  "door_width": { "min": 900 },
+  "door_height": { "min": 2100 },
+  "ramp_slope_ratio": { "max": 0.083 },
+  "stair_riser": { "max": 150 },
+  "stair_tread": { "min": 300 },
+  "handrail_height": { "min": 760, "max": 900 },
+  "corridor_width": { "min": 1200 },
+  "toilet_door": { "min": 900 },
+  "signage_height": { "min": 1400, "max": 1700 },
+  "lift_button_height": { "min": 900, "max": 1200 }
+}
