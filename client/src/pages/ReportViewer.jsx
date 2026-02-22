@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
+import { api } from '../api';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 
@@ -16,7 +16,7 @@ export default function ReportViewer() {
   const fetchReport = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get(`/api/reports/${id}`, {
+      const response = await api.get(`/api/reports/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setReport(response.data);
@@ -119,7 +119,7 @@ export default function ReportViewer() {
         {report.imageUrl && (
           <div className="mb-6">
             <img
-              src={`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}${report.imageUrl}`}
+              src={`${import.meta.env.VITE_API_URL || 'http://localhost:5001'}${report.imageUrl}`}
               alt="Audit image"
               className="max-w-full rounded"
             />

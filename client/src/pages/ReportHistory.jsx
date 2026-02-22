@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import { api } from '../api';
 
 export default function ReportHistory() {
   const [reports, setReports] = useState([]);
@@ -13,7 +13,7 @@ export default function ReportHistory() {
   const fetchReports = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('/api/reports', {
+      const response = await api.get('/api/reports', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setReports(response.data);
@@ -28,7 +28,7 @@ export default function ReportHistory() {
     if (!confirm('Delete this report?')) return;
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`/api/reports/${id}`, {
+      await api.delete(`/api/reports/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchReports();

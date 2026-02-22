@@ -1,9 +1,16 @@
-fastapi==0.104.1
-uvicorn==0.24.0
-python-multipart==0.0.6
-ultralytics==8.1.0
-opencv-python==4.8.1.78
-numpy==1.24.3
-pillow==10.1.0
-pydantic==2.5.0
-python-dotenv==1.0.0
+# Install setuptools and wheel first so source builds work
+setuptools>=65.0.0
+wheel
+
+# Core
+fastapi>=0.104.0
+uvicorn>=0.24.0
+python-multipart>=0.0.6
+pydantic>=2.5.0
+python-dotenv>=1.0.0
+
+# ML / vision (flexible versions for Python 3.14 compatibility)
+numpy>=1.26.0,<3.0
+opencv-python>=4.8.0
+pillow>=10.0.0
+ultralytics>=8.1.0

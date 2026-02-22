@@ -17,7 +17,8 @@ export default function Signup() {
       await signup(email, password, name);
       navigate('/');
     } catch (err) {
-      setError(err.response?.data?.error || 'Signup failed');
+      const msg = err.response?.data?.error || (err.code === 'ERR_NETWORK' ? 'Cannot reach server. Make sure the backend is running on port 5001.' : 'Signup failed');
+      setError(msg);
     }
   };
 

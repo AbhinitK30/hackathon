@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { api } from '../api';
 
 export default function NewAudit() {
   const [image, setImage] = useState(null);
@@ -80,7 +80,7 @@ export default function NewAudit() {
       formData.append('referenceDimensionMm', referenceDimension.toString());
 
       const token = localStorage.getItem('token');
-      const response = await axios.post('/api/audit', formData, {
+      const response = await api.post('/api/audit', formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',

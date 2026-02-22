@@ -16,7 +16,8 @@ export default function Login() {
       await login(email, password);
       navigate('/');
     } catch (err) {
-      setError(err.response?.data?.error || 'Login failed');
+      const msg = err.response?.data?.error || (err.code === 'ERR_NETWORK' ? 'Cannot reach server. Make sure the backend is running on port 5001.' : 'Login failed');
+      setError(msg);
     }
   };
 
